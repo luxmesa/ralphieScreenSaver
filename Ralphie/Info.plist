@@ -19,6 +19,6 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>NSPrincipalClass</key>
-	<string>ralphie.RalphieView</string>
+	<string>Ralphie.RalphieView</string>
 </dict>
 </plist>

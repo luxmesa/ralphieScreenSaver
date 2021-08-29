@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10132F3226DBE35000CDE679 /* RalphieIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10132F3126DBE35000CDE679 /* RalphieIcon.swift */; };
 		105B892826DAF644005E3160 /* RalphieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B892726DAF644005E3160 /* RalphieView.swift */; };
 		105B896726DB09FE005E3160 /* ralphieImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 105B896626DB09FE005E3160 /* ralphieImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10132F3126DBE35000CDE679 /* RalphieIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RalphieIcon.swift; sourceTree = "<group>"; };
 		105B891A26DAF5FC005E3160 /* Ralphie.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Ralphie.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		105B892126DAF5FC005E3160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		105B892726DAF644005E3160 /* RalphieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RalphieView.swift; sourceTree = "<group>"; };
@@ -29,10 +31,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		105B891026DAF5FB005E3160 = {
+		10132F3026DBE31200CDE679 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
 				105B896626DB09FE005E3160 /* ralphieImage.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		105B891026DAF5FB005E3160 = {
+			isa = PBXGroup;
+			children = (
+				10132F3026DBE31200CDE679 /* Icons */,
 				105B891C26DAF5FC005E3160 /* Ralphie */,
 				105B891B26DAF5FC005E3160 /* Products */,
 			);
@@ -51,6 +61,7 @@
 			children = (
 				105B892126DAF5FC005E3160 /* Info.plist */,
 				105B892726DAF644005E3160 /* RalphieView.swift */,
+				10132F3126DBE35000CDE679 /* RalphieIcon.swift */,
 			);
 			path = Ralphie;
 			sourceTree = "<group>";
@@ -134,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10132F3226DBE35000CDE679 /* RalphieIcon.swift in Sources */,
 				105B892826DAF644005E3160 /* RalphieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
