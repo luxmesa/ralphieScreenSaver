@@ -9,10 +9,13 @@ import ScreenSaver
 
 class RalphieView: ScreenSaverView {
 
-    private var ralphie: RalphieIcon
+    private let ralphie: RalphieIcon
+    private let oooh: OoohIcon
     
     override init?(frame: NSRect, isPreview: Bool) {
-        self.ralphie = RalphieIcon(frameWidth: frame.width, frameHeight: frame.height)
+        let frameSize = CGSize(width: frame.width, height: frame.height)
+        self.ralphie = RalphieIcon(frameSize: frameSize)
+        self.oooh = OoohIcon(frameSize: frameSize)
         super.init(frame: frame, isPreview: isPreview)
     }
     
@@ -27,13 +30,18 @@ class RalphieView: ScreenSaverView {
         NSColor.black.setFill()
         background.fill()
         
+        oooh.draw()
         ralphie.draw()
     }
 
     override func animateOneFrame() {
 
         super.animateOneFrame()
-        ralphie.updatePosition()
+        let collision = ralphie.updatePosition()
+        if(collision) {
+            oooh.trigger()
+        }
+        oooh.updatePosition()
         setNeedsDisplay(bounds)
     }
 
