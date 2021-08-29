@@ -26,28 +26,28 @@ class OoohIcon: Icon {
         self.image = Bundle(for: type(of: self)).image(forResource: "ooohImage.png")
         self.view = NSImageView(image: self.image!)
         self.imageSize = IconHelper.calculateImageSize(frameSize: frameSize, imageSize: image!.size, frameScale: OoohIcon.FRAME_SCALE)
-        self.position = 0 - ceil(imageSize.width / 2)
+        self.position = 0 - imageSize.width / 2
         self.speed = IconHelper.calculateSpeed(distance: frameSize.width, speedScale: OoohIcon.SPEED_SCALE)
     }
     
     func trigger() {
-        if(position < 0 - ceil(imageSize.width / 2)) {
-            position = frameSize.width + ceil(imageSize.width / 2)
+        if(position < 0 - imageSize.width / 2) {
+            position = frameSize.width + imageSize.width / 2
         }
     }
     
     func draw() {
-        if(position >= 0 - ceil(imageSize.width / 2)) {
-            let rect = NSRect(x: position - imageSize.width / 2,
-                              y: 0,
-                              width: imageSize.width,
-                              height: imageSize.height)
+        let rect = NSRect(x: position - imageSize.width / 2,
+                          y: 0,
+                          width: imageSize.width,
+                          height: imageSize.height)
+        if(rect != view.frame) {
             view.frame = rect
         }
     }
     
     func updatePosition() -> Bool {
-        if(position >= 0 - ceil(imageSize.width / 2)) {
+        if(position >= 0 - imageSize.width / 2) {
             position -= speed
         }
         return false

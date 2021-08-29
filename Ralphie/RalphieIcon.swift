@@ -51,11 +51,6 @@ class RalphieIcon: Icon {
                          height: imageSize.height)
         
         view.frame = rect
-        
-        /*image?.draw(in: NSRect(x: position.x - imageSize.width / 2,
-                                       y: position.y - imageSize.height / 2,
-                                       width: imageSize.width,
-                                       height: imageSize.height))*/
     }
     
     func updatePosition() -> Bool {
