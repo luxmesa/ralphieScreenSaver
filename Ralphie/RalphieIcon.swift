@@ -18,12 +18,14 @@ class RalphieIcon: Icon {
     private var velocity: CGVector
     private var image: NSImage?
     private var imageSize: CGSize
+    var view: NSView
     
     private var frameSize: CGSize
     
     
     init(frameSize: CGSize) {
         self.image = Bundle(for: type(of: self)).image(forResource: "ralphieImage.png")
+        self.view = NSImageView(image: self.image!)
         self.frameSize = frameSize
         self.imageSize = IconHelper.calculateImageSize(frameSize: frameSize, imageSize: image!.size, frameScale: RalphieIcon.FRAME_SCALE)
         
@@ -43,10 +45,17 @@ class RalphieIcon: Icon {
     }
     
     func draw() {
-        image?.draw(in: NSRect(x: position.x - imageSize.width / 2,
+        let rect = NSRect(x: position.x - imageSize.width / 2,
+                         y: position.y - imageSize.height / 2,
+                         width: imageSize.width,
+                         height: imageSize.height)
+        
+        view.frame = rect
+        
+        /*image?.draw(in: NSRect(x: position.x - imageSize.width / 2,
                                        y: position.y - imageSize.height / 2,
                                        width: imageSize.width,
-                                       height: imageSize.height))
+                                       height: imageSize.height))*/
     }
     
     func updatePosition() -> Bool {

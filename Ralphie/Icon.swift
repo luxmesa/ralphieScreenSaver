@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol Icon {
     func draw()
     func updatePosition() -> Bool
+    var view: NSView { get }
 }
 
 class IconHelper {

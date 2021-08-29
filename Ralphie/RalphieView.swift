@@ -17,6 +17,8 @@ class RalphieView: ScreenSaverView {
         self.ralphie = RalphieIcon(frameSize: frameSize)
         self.oooh = OoohIcon(frameSize: frameSize)
         super.init(frame: frame, isPreview: isPreview)
+        self.addSubview(oooh.view)
+        self.addSubview(ralphie.view)
     }
     
     @available(*, unavailable)
@@ -26,9 +28,9 @@ class RalphieView: ScreenSaverView {
 
     override func draw(_ rect: NSRect) {
         // background
-        let background = NSBezierPath(rect: bounds)
-        NSColor.black.setFill()
-        background.fill()
+        //let background = NSBezierPath(rect: bounds)
+        //NSColor.black.setFill()
+        //background.fill()
         
         oooh.draw()
         ralphie.draw()
