@@ -12,7 +12,7 @@ class RalphieIcon: Icon {
     
     private static let SPEED_SCALE: CGFloat = 180
     private static let FRAME_SCALE: CGFloat = 3
-    private static let CORNER_FUDGE: CGFloat = 2
+    private static let CORNER_TOLERANCE: CGFloat = 10
     
     private var position: CGPoint
     private var velocity: CGVector
@@ -29,7 +29,7 @@ class RalphieIcon: Icon {
         
         self.position = CGPoint(x: frameSize.width / 2, y: frameSize.height / 2)
         //let tempPosition = min(frameSize.width / 2, frameSize.height / 2)
-        //self.position = CGPoint(x: tempPosition + imageSize.width / 2, y: tempPosition + imageSize.height / 2 + RalphieIcon.CORNER_FUDGE)
+        //self.position = CGPoint(x: tempPosition + imageSize.width / 2, y: tempPosition + imageSize.height / 2 + RalphieIcon.CORNER_TOLERANCE)
         self.velocity = RalphieIcon.initialVelocity(frameSize: frameSize)
     }
     
@@ -53,14 +53,14 @@ class RalphieIcon: Icon {
         position.x += velocity.dx
         position.y += velocity.dy
         var collision = 0
-        if(position.x - imageSize.width / 2 - RalphieIcon.CORNER_FUDGE <= 0) {
+        if(position.x - imageSize.width / 2 - RalphieIcon.CORNER_TOLERANCE <= 0) {
             if(position.x - imageSize.width / 2 <= 0) {
                 velocity.dx *= -1
                 position.x = imageSize.width - position.x
             }
             collision += 1
         }
-        if(position.x + imageSize.width / 2 + RalphieIcon.CORNER_FUDGE >= frameSize.width) {
+        if(position.x + imageSize.width / 2 + RalphieIcon.CORNER_TOLERANCE >= frameSize.width) {
             if(position.x + imageSize.width / 2 >= frameSize.width) {
                 velocity.dx *= -1
                 position.x = frameSize.width * 2 - position.x - imageSize.width
@@ -68,14 +68,14 @@ class RalphieIcon: Icon {
             collision += 1
         }
         
-        if(position.y - imageSize.height / 2 - RalphieIcon.CORNER_FUDGE <= 0) {
+        if(position.y - imageSize.height / 2 - RalphieIcon.CORNER_TOLERANCE <= 0) {
             if(position.y - imageSize.height / 2 <= 0) {
                 velocity.dy *= -1
                 position.y = imageSize.height - position.y
             }
             collision += 1
         }
-        if(position.y + imageSize.height / 2 + RalphieIcon.CORNER_FUDGE >= frameSize.height) {
+        if(position.y + imageSize.height / 2 + RalphieIcon.CORNER_TOLERANCE >= frameSize.height) {
             if(position.y + imageSize.height / 2 >= frameSize.height) {
                 velocity.dy *= -1
                 position.y = frameSize.height * 2 - position.y - imageSize.height
