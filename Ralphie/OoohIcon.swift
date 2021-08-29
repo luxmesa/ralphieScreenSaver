@@ -25,7 +25,7 @@ class OoohIcon: Icon {
         self.image = Bundle(for: type(of: self)).image(forResource: "ooohImage.png")
         self.imageSize = IconHelper.calculateImageSize(frameSize: frameSize, imageSize: image!.size, frameScale: OoohIcon.FRAME_SCALE)
         self.position = 0 - ceil(imageSize.width / 2)
-        self.speed = IconHelper.calculateSpeed(frameSize: frameSize, speedScale: OoohIcon.SPEED_SCALE)
+        self.speed = IconHelper.calculateSpeed(distance: frameSize.width, speedScale: OoohIcon.SPEED_SCALE)
     }
     
     func trigger() {

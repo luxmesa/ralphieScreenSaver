@@ -21,7 +21,7 @@ class IconHelper {
         return CGSize(width: ceil(imageSize.width / imageScale), height: ceil(imageSize.height / imageScale))
     }
     
-    static func calculateSpeed(frameSize: CGSize, speedScale: CGFloat) -> CGFloat {
-        return ceil(frameSize.width / speedScale)
+    static func calculateSpeed(distance: CGFloat, speedScale: CGFloat) -> CGFloat {
+        return ceil(distance / speedScale)
     }
 }

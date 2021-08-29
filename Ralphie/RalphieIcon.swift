@@ -10,7 +10,7 @@ import SwiftUI
 
 class RalphieIcon: Icon {
     
-    private static let SPEED_SCALE: CGFloat = 150
+    private static let SPEED_SCALE: CGFloat = 180
     private static let FRAME_SCALE: CGFloat = 3
     
     private var position: CGPoint
@@ -31,7 +31,7 @@ class RalphieIcon: Icon {
     }
     
     private static func initialVelocity(frameSize: CGSize) -> CGVector {
-        let desiredVelocityMagnitude: CGFloat = IconHelper.calculateSpeed(frameSize: frameSize, speedScale: RalphieIcon.SPEED_SCALE)
+        let desiredVelocityMagnitude: CGFloat = IconHelper.calculateSpeed(distance: min(frameSize.width, frameSize.height), speedScale: RalphieIcon.SPEED_SCALE)
         let xSign: CGFloat = Bool.random() ? 1 : -1
         let ySign: CGFloat = Bool.random() ? 1 : -1
         return CGVector(dx: desiredVelocityMagnitude * xSign, dy: desiredVelocityMagnitude * ySign)
